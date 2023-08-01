@@ -63,7 +63,7 @@ const updUser = asyncHandler (async (req, res) => {
     const reqUser = await user.findById(req.params.id);
     if(!reqUser){
         res.status(404);
-        throw new Error("Contact not found");
+        throw new Error("User not found");
     }
     const username=reqUser.username;
     const base = "https://codeforces.com/api/user.info?handles=";
@@ -83,7 +83,7 @@ const delUser = asyncHandler (async (req, res) => {
     const username = reqUser.username;
     if(!reqUser){
         res.status(404);
-        throw new Error("Contact not found");
+        throw new Error("User not found");
     }
     await user.deleteOne({ 
         _id : req.params.id 
