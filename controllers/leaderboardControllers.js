@@ -33,7 +33,7 @@ const postUser = asyncHandler (async (req, res) => {
     const response = await getResponse(url);
     console.log(response);
     if(response.status=="FAILED"){
-        res.status(400).json({msg : `given username does not exist in database!`});
+        res.status(400).json({msg : `given username does not exist on codeforces!`});
     }
     const curruser = await user.create({
         username : username,
