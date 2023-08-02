@@ -14,7 +14,7 @@ async function getResponse(url) {
 }
 
 const getLeaderboard = asyncHandler (async (req, res) => {
-    const leaderboard = await user.find({}).sort(`-rating`);
+    const leaderboard = await user.find({}).sort({rating : -1});
     res.status(200).json(leaderboard);
 });
 
