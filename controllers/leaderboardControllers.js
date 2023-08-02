@@ -28,9 +28,9 @@ const postUser = asyncHandler (async (req, res) => {
     if(existingUser){
         res.status(400).json({msg : `username already exists`});
     }
-    let base = "https://codeforces.com/api/user.info?handles=";
-    let url=base.concat(username);
-    let response = await getResponse(url);
+    const base = "https://codeforces.com/api/user.info?handles=";
+    const url=base.concat(username);
+    const response = await getResponse(url);
     console.log(response);
     if(response.status=="FAILED"){
         res.status(400).json({msg : `given username does not exist in database!`});
