@@ -3,7 +3,7 @@ const user = require("../models/userModel");
 const https = require('https');
 const axios = require('axios');
 
-async function getResponse(url) {
+const getResponse = async (url) => {
   try {
     const response = await axios.get(url);
     return response.data;
@@ -11,7 +11,7 @@ async function getResponse(url) {
     console.error(error.message);
     throw error;
   }
-}
+};
 
 const getLeaderboard = asyncHandler (async (req, res) => {
     const leaderboard = await user.find({}).sort({rating : -1});
